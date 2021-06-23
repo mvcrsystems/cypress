@@ -4,7 +4,6 @@ describe('Insert Material Scrap', function () {
     const dowLot = "101010";
     const user = '1005';
     const f = new Date();
-    const currentDate = (f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const currentDateMonth = (f.getDate() + "/" + monthNames[f.getMonth()] + "/" + f.getFullYear());
     function sumDate(d, oldDate) {
@@ -71,8 +70,8 @@ describe('Insert Material Scrap', function () {
     i++;
     it('0' + i + ' - Log in (Good) User Allowed', function () {
         cy.visit('http://localhost/scrapplus/index.php', {});
-        cy.get('#email').type("rodolfo.vargas", { delay: 100 });
-        cy.get('#password').type("Gelymbnf$17", { delay: 100 });
+        cy.get('#email').type("coatingtr", { delay: 100 });
+        cy.get('#password').type("Cuacoro#44", { delay: 100 });
         cy.get('button').contains('Iniciar Sesión').click();
         cy.wait(1000);
         cy.screenshot();
@@ -252,9 +251,12 @@ describe('Insert Material Scrap', function () {
         cy.get('#date').type(pastDate, { delay: 50 });
         cy.wait(1000);
         cy.get('#btnSafe').click();
+    });
+    i++;
+    it(i + " - Display error message 'Wrong Date!' due to wrong past date selected", function () {
         cy.get('#swal2-title').contains('Wrong Date!');
+        cy.wait(2000);
         cy.screenshot();
-        cy.wait(1000);
         cy.get('button').contains('OK').click();
     });
     i++;
@@ -263,19 +265,42 @@ describe('Insert Material Scrap', function () {
         cy.get('#date').type(futureDate, { delay: 50 });
         cy.wait(1000);
         cy.get('#btnSafe').click();
+    });
+    i++;
+    it(i + " - Display error message 'Wrong Date!' due to wrong future date selected", function () {
         cy.get('#swal2-title').contains('Wrong Date!');
+        cy.wait(2000);
         cy.screenshot();
-        cy.wait(1000);
         cy.get('button').contains('OK').click();
     });
     i++;
     it(i + ' - Click on Save Button with good date', function () {
         cy.get('#date').clear();
         cy.get('#date').type(currentDateMonth, { delay: 50 });
-        cy.wait(1000);
-        cy.get('#btnSafe').click();
-        cy.get('#swal2-title').contains('Data saved successfully!');
+        cy.wait(2000);
         cy.screenshot();
-        cy.wait(1000);
+        cy.get('#btnSafe').click();
+    });
+    i++;
+    it(i + " - Display success message 'Data saved successfully!'", function () {
+        cy.get('#swal2-title').contains('Data saved successfully!');
+        cy.wait(2000);
+        cy.screenshot();
+    });
+    i++;
+    it(i + ' - Deleting a row data', function () {
+        cy.get('#1').click();
+        cy.get('#swal2-title').contains('Are you sure?');
+        cy.get('#swal2-content').contains("You won't be able to revert this!");
+        cy.wait(2000);
+        cy.screenshot();
+        cy.get('button').contains('Yes, delete it!').click();
+    });
+    i++;
+    it(i + " - Display success message 'Data deleted succesfully'", function () {
+        cy.get('#swal2-title').contains('Data deleted succesfully');
+        cy.wait(2000);
+        cy.screenshot();
+        cy.get('button').contains('OK').click();
     });
 });
