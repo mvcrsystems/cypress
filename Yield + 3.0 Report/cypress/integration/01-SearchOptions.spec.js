@@ -7,7 +7,7 @@ describe('Selecting Area', function () {
 	let area = '';
 	let i = 0;
 	it(leadingZeroes(++i) + ' - Go to Yield + 3.0 Report', function () {
-		cy.visit('http://localhost/yp3_report/');
+		cy.visit('http://sjo-testapp1/yp3_report/');
 		cy.wait(1000);
 	});
 	it(leadingZeroes(++i) + ' - Log in (Wrong)', function () {

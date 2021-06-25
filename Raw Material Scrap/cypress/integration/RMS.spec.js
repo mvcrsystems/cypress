@@ -37,7 +37,7 @@ describe('Insert Material Scrap', function () {
 
     var i = 1;
     it('0' + i + ' - Go to Raw Material Scrap App', function () {
-        cy.visit('http://localhost/scrapplus/index.php', {});
+        cy.visit('http://sjo-testapp1/scrapplus/index.php', {});
     });
     i++;
     it('0' + i + ' - Log in (Wrong)', function () {
@@ -65,11 +65,12 @@ describe('Insert Material Scrap', function () {
         cy.wait(2000);
         cy.screenshot();
         cy.get('button').contains('OK').click();
+        cy.clearCookies();
         cy.wait(1000);
     });
     i++;
     it('0' + i + ' - Log in (Good) User Allowed', function () {
-        cy.visit('http://localhost/scrapplus/index.php', {});
+        cy.visit('http://sjo-testapp1/scrapplus/index.php', {});
         cy.get('#email').type("coatingtr", { delay: 100 });
         cy.get('#password').type("Cuacoro#44", { delay: 100 });
         cy.get('button').contains('Iniciar Sesión').click();
