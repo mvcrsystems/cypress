@@ -1,4 +1,4 @@
-describe('Testing Responsible By Area', function () {
+describe('Responsible By Area', function () {
     var i = 1;
     it('0' + i + ' - Go to eRed Tag App', function () {
         cy.visit('http://sjo-testapp1/eredtag/index.php', {});
@@ -18,7 +18,7 @@ describe('Testing Responsible By Area', function () {
         //cy.wait(1000);
         //cy.screenshot();
     });
-    i++;
+    /*i++;
     it('0' + i + ' - Log in (Good) with User not Allowed', function () {
         cy.get('#email').clear();
         cy.wait(2000);
@@ -54,9 +54,9 @@ describe('Testing Responsible By Area', function () {
         cy.clearCookies();
         cy.wait(2000);
         //cy.screenshot();
-    });
+    });*/
     i++;
-    it('0' + i + ' - Log in (Good) with User Allowed', function () {
+    it('0' + i + ' - Log in (Good)', function () {
         cy.visit('http://sjo-testapp1/eredtag/index.php', {});
         cy.wait(2000);
         cy.get('#loginModal').should('have.attr', 'aria-modal');
@@ -129,7 +129,7 @@ describe('Testing Responsible By Area', function () {
         cy.get('#btnSave').should('be.disabled');
     });
     i++;
-    it(i + ' - Select an Area Site', function () {
+    it('0' + i + ' - Select an Area Site', function () {
         cy.get('#phase').select('CER 1');
         cy.wait(2000);
         cy.get('#funcArea').should('not.be.disabled');
@@ -138,7 +138,7 @@ describe('Testing Responsible By Area', function () {
         cy.get('#btnSave').should('be.disabled');
     });
     i++;
-    it(i + ' - Select a Functional Area', function () {
+    it('0' + i + ' - Select a Functional Area', function () {
         cy.get('#funcArea').select('TESTING');
         cy.wait(2000);
         cy.get('#resp').should('not.be.disabled');
@@ -156,6 +156,7 @@ describe('Testing Responsible By Area', function () {
         cy.wait(1000);
         //cy.screenshot();
     });
+    i++;
     it(i + " - Click on Save Button'", function () {
         cy.get('#btnSave').should('not.be.disabled');
         cy.get('#btnSave').click();
