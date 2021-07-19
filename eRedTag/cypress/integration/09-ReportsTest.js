@@ -155,8 +155,8 @@ describe('Reports', function () {
       url: `eredtag/php/queries/search_overall.php`
     }).its('body').should('not.be.empty');
   });
-  it("Choose the row to Reports per Equipment table to see more charts", function () {
+  /*it("Choose the row to Reports per Equipment table to see more charts", function () {
     cy.get('tr').contains('ED2011-051 (Zebra 170Xi4 Label System - Boxing)').click();
     cy.wait(1000);
-  });
+  });*/
 });

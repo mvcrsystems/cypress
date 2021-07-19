@@ -46,7 +46,7 @@ describe('Assign a Technician and Close a Red Tag', function () {
         cy.wait(1000);
         cy.get('#redTagModal').should('have.attr', 'aria-modal');
         cy.wait(1000);
-        cy.get('#tecnico').select('Espinoza Fabian');
+        cy.get('#tecnico').select('Jose Alvarado');
         cy.get('#assign').click();
         cy.wait(1000);
     });

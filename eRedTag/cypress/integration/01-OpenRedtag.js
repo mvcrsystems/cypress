@@ -88,7 +88,7 @@ describe('Open a New Red Tag', function () {
         cy.get('#calibracion').should('be.disabled');
         cy.get('#calibracion').should('have.value', 'N/A');
         cy.get('#mantenimiento').should('be.disabled');
-        cy.get('#mantenimiento').should('have.value', '20-Jul-2021');
+        cy.get('#mantenimiento').should('have.value', '13-Apr-2021');
         cy.get('#lot').should('not.be.disabled');
         cy.get('#pdnumber').should('be.disabled');
     });

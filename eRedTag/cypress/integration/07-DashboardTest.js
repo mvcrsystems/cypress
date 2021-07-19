@@ -37,11 +37,11 @@ describe('Dashboards', function () {
   i++;
   it('0' + i + ' - Go to Dashboard Section', function () {
     cy.get('a').contains('Dashboard').click();
-    cy.wait(1000);
+    cy.wait(2000);
   });
   i++;
   it('0' + i + ' - Show Dashboards', function () {
-    cy.get('#summaryCarousel').should('have.class', 'carousel slide pointer-event');
+    cy.get('#summaryCarousel').should('have.class', 'carousel slide');
     cy.request({
       method: 'POST',
       url: `eredtag/php/dashboard/summary.php`
