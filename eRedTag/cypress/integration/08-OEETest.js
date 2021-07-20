@@ -95,4 +95,4 @@ describe('OEE', function () {
       url: `eredtag/php/queries/search_ed.php`
     }).its('body').should('not.be.empty');
   });
-});
+})
