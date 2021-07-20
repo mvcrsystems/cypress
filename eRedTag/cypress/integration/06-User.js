@@ -16,43 +16,6 @@ describe('User Management', function () {
         cy.get('#error').should('contain', 'Error, verifique usuario y contraseña!');
         cy.get('#password').clear();
     });
-    /*i++;
-    it('0' + i + ' - Log in (Good) with User not Allowed', function () {
-        cy.get('#email').clear();
-        cy.wait(2000);
-        cy.get('#email').type("wotracker", { delay: 100 });
-        cy.wait(2000);
-        cy.get('#password').type("Microvention#44", { delay: 100 });
-        cy.wait(2000);
-        cy.get('button').contains(' Iniciar sesión').click();
-        cy.wait(2000);
-        cy.get('#area').should('not.be.disabled');
-        cy.get('#areaFuncional').should('be.disabled');
-        cy.get('#equipo').should('be.disabled');
-        cy.get('#descEquipo').should('be.disabled');
-        cy.get('#fallaGeneral').should('be.disabled');
-        cy.get('#supervisor').should('be.disabled');
-        cy.get('#lider').should('not.be.disabled');
-        cy.get('#calibracion').should('be.disabled');
-        cy.get('#mantenimiento').should('be.disabled');
-        cy.get('#lot').should('not.be.disabled');
-        cy.get('#pdnumber').should('be.disabled');
-        cy.wait(2000);
-        cy.get('#loginModal').should('have.attr', 'aria-hidden');
-        //cy.screenshot();
-    });
-    i++;
-    it('0' + i + ' - Display Message User not Allowed', function () {
-        cy.get('a').contains('Management').click();
-        cy.wait(2000);
-        cy.get('#swal2-title').contains('User not allowed');
-        cy.wait(2000);
-        //cy.screenshot();
-        cy.get('button').contains('OK').click();
-        cy.clearCookies();
-        cy.wait(2000);
-        //cy.screenshot();
-    });*/
     i++;
     it('0' + i + ' - Log in (Good)', function () {
         cy.visit('http://sjo-testapp1/eredtag/index.php', {});
@@ -78,7 +41,6 @@ describe('User Management', function () {
         cy.get('#pdnumber').should('be.disabled');
         cy.wait(2000);
         cy.get('#loginModal').should('have.attr', 'aria-hidden');
-        //cy.screenshot();
     });
     i++;
     it('0' + i + ' - Go to Management Section With Allowed User', function () {
@@ -110,7 +72,6 @@ describe('User Management', function () {
     it('0' + i + " - Display success message 'Data saved successfully!'", function () {
         cy.get('#swal2-title').contains('Data saved successfully!');
         cy.wait(2000);
-        //cy.screenshot();
         cy.get('button').contains('OK').click();
     });
     i++;
@@ -121,7 +82,6 @@ describe('User Management', function () {
         cy.get('#swal2-title').contains('Are you sure?');
         cy.get('#swal2-content').contains("You won't be able to revert this!");
         cy.wait(2000);
-        //cy.screenshot();
         cy.get('button').contains('Yes').click();
     });
     i++;

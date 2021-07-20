@@ -15,8 +15,6 @@ describe('Open a New Red Tag', function () {
         cy.wait(1000);
         cy.get('#error').should('contain', 'Error, verifique usuario y contraseña!');
         cy.get('#password').clear();
-        //cy.wait(1000);
-        //cy.screenshot();
     });
     i++;
     it('0' + i + ' - Log in (Good)', function () {
@@ -41,7 +39,6 @@ describe('Open a New Red Tag', function () {
         cy.get('#pdnumber').should('be.disabled');
         cy.wait(1000);
         cy.get('#loginModal').should('have.attr', 'aria-hidden');
-        //cy.screenshot();
     });
     i++;
     it('0' + i + ' - Select an Area', function () {
@@ -52,7 +49,7 @@ describe('Open a New Red Tag', function () {
         cy.get('#descEquipo').should('be.disabled');
         cy.get('#fallaGeneral').should('be.disabled');
         cy.get('#supervisor').should('be.disabled');
-        cy.get('#supervisor').should('have.value', 'Fernando Castro');
+        cy.get('#supervisor').should('have.value', 'Jorge Alvarez');
         cy.get('#lider').should('not.be.disabled');
         cy.get('#calibracion').should('be.disabled');
         cy.get('#mantenimiento').should('be.disabled');
@@ -67,7 +64,7 @@ describe('Open a New Red Tag', function () {
         cy.get('#descEquipo').should('be.disabled');
         cy.get('#fallaGeneral').should('not.be.disabled');
         cy.get('#supervisor').should('be.disabled');
-        cy.get('#supervisor').should('have.value', 'Fernando Castro');
+        cy.get('#supervisor').should('have.value', 'Jorge Alvarez');
         cy.get('#lider').should('not.be.disabled');
         cy.get('#calibracion').should('be.disabled');
         cy.get('#mantenimiento').should('be.disabled');
@@ -83,7 +80,7 @@ describe('Open a New Red Tag', function () {
         cy.get('#descEquipo').should('have.value', 'UV LIGHT');
         cy.get('#fallaGeneral').should('not.be.disabled');
         cy.get('#supervisor').should('be.disabled');
-        cy.get('#supervisor').should('have.value', 'Fernando Castro');
+        cy.get('#supervisor').should('have.value', 'Jorge Alvarez');
         cy.get('#lider').should('not.be.disabled');
         cy.get('#calibracion').should('be.disabled');
         cy.get('#calibracion').should('have.value', 'N/A');
@@ -98,17 +95,16 @@ describe('Open a New Red Tag', function () {
         cy.get('#alertMessage').should('have.class', 'alert alert-danger');
         cy.get('#alertText').contains('Blanks not allowed!');
         cy.wait(2000);
-        //cy.screenshot();
     });
     i++;
     it('0' + i + ' - Select a General Failure and Lead', function () {
         cy.get('#fallaGeneral').select('TEST');
-        cy.get('#lider').select('Maria Cordoba Cordoba');
+        cy.get('#lider').select('Sharon Loria');
         cy.wait(1000);
         cy.get('#descEquipo').should('be.disabled');
         cy.get('#descEquipo').should('have.value', 'UV LIGHT');
         cy.get('#supervisor').should('be.disabled');
-        cy.get('#supervisor').should('have.value', 'Fernando Castro');
+        cy.get('#supervisor').should('have.value', 'Jorge Alvarez');
         cy.get('#lider').should('not.be.disabled');
         cy.get('#calibracion').should('be.disabled');
         cy.get('#calibracion').should('have.value', 'N/A');
@@ -124,7 +120,6 @@ describe('Open a New Red Tag', function () {
         cy.get('#alertMessage').should('have.class', 'alert alert-danger');
         cy.get('#alertText').contains('Red Tag already opened');
         cy.wait(2000);
-        //cy.screenshot();
     });
     i++;
     it(i + ' - Click on Open Red Tag Button with Correct Information', function () {
@@ -136,7 +131,7 @@ describe('Open a New Red Tag', function () {
         cy.get('#descEquipo').should('have.value', 'UV LIGHT');
         cy.get('#fallaGeneral').should('not.be.disabled');
         cy.get('#supervisor').should('be.disabled');
-        cy.get('#supervisor').should('have.value', 'Fernando Castro');
+        cy.get('#supervisor').should('have.value', 'Jorge Alvarez');
         cy.get('#lider').should('not.be.disabled');
         cy.get('#calibracion').should('be.disabled');
         cy.get('#calibracion').should('have.value', 'N/A');
@@ -149,11 +144,9 @@ describe('Open a New Red Tag', function () {
     });
     i++;
     it(i + ' - Show a Success Message', function () {
-        //cy.wait(5000);
         cy.get('#save').click();
         cy.get('#alertMessage').should('have.class', 'alert alert-success');
         cy.get('#alertText').contains('Red Tag sent!');
         cy.wait(2000);
-        //cy.screenshot();
     });
 });
