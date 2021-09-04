@@ -84,5 +84,6 @@ describe('Insert Documentation Error', function () {
         cy.get('#password').type("Microvention#44", { delay: 100 });
         cy.wait(1000);
         cy.get('button').contains('Iniciar sesión').click();
+        
     });
 });
