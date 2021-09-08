@@ -40,10 +40,6 @@ describe('Insert Documentation Error', function () {
     var i = 1;
     it('0' + i + ' - Go to Documentation Errors App', function () {
         cy.visit('http://sjo-testapp1/docErrors/index.php', {
-			// auth: {
-			// 	username: 'us\\wotracker',
-			// 	password: 'Microvention#44'
-			// }
 		})
 		cy.wait(2000);
     });
@@ -55,7 +51,7 @@ describe('Insert Documentation Error', function () {
         cy.get('#error').should('contain', 'Error, verifique usuario y contraseña!');
         cy.get('#password').clear();
         cy.wait(1000);
-        cy.screenshot();
+        // cy.screenshot();
     });
     i++;
     it('0' + i + ' - Log in (Good) User Not Allowed', function () {
@@ -65,13 +61,12 @@ describe('Insert Documentation Error', function () {
         cy.get('button').contains('Iniciar sesión').click();
         cy.get('#swal2-title').contains("You don't have permissions to use this app");
         cy.wait(2000);
-        cy.screenshot();
+        // cy.screenshot();
     });
     i++;
     it('0' + i + " - Display error message 'User Not Allowed'", function () {
-        cy.get('#swal2-title').contains("You don't have permissions to use this app");
         cy.wait(2000);
-        cy.screenshot();
+        cy.get('#swal2-title').contains("You don't have permissions to use this app");
         cy.get('button').contains('OK').click();
         cy.clearCookies();
         cy.wait(1000);
@@ -84,6 +79,38 @@ describe('Insert Documentation Error', function () {
         cy.get('#password').type("Microvention#44", { delay: 100 });
         cy.wait(1000);
         cy.get('button').contains('Iniciar sesión').click();
-        
+        cy.wait(1000);
+        cy.get('#inputUsername').should('be.empty')
+    });
+    i++;
+    it('0' + i + ' - Action changed by "Justify GDP correction"', function () {
+        cy.wait(2000);
+        cy.get('#selectJustifyGDP').select('No')
+        cy.get('#inputAction').should('not.be.disabled')
+        cy.wait(2000);
+        cy.get('#selectJustifyGDP').select('Yes')
+        cy.get('#inputAction').should('be.disabled')
+    });
+    i++;
+    it('0' + i + ' - Product Line changed by Area selected"', function () {
+        cy.wait(2000);
+        cy.get('#selectArea').select('Coils')
+        cy.wait(3000);
+        cy.get('#selectArea').select('Stents')
+        cy.wait(2000);
+        cy.get('#selectArea').select('Access')
+        cy.wait(2000);
+        cy.get('#selectArea').select('Chemistry')
+    });
+    i++;
+    it('0' + i + ' - Search wrong user in ldap"', function () {
+        cy.wait(2000);
+        cy.get('#selectArea').select('Coils')
+        cy.wait(3000);
+        cy.get('#selectArea').select('Stents')
+        cy.wait(2000);
+        cy.get('#selectArea').select('Access')
+        cy.wait(2000);
+        cy.get('#selectArea').select('Chemistry')
     });
 });
