@@ -1,1 +1,0 @@
-cypress run --record --key 512c07d8-f296-4127-891a-2c4c02b8d3f9

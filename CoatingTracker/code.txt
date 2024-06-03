@@ -1,1 +1,0 @@
-node_modules\.bin\cypress run --record --key 644f20b9-88fb-4fa3-aaa8-2725bff3e737

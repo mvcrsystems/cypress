@@ -1,1 +1,0 @@
-cypress run --record --key a0af5149-406e-4c2f-9808-971e2cf4dad9
