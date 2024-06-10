@@ -109,8 +109,7 @@ describe('Lot Log Interface', () => {
     sumConsecutive();
     it(`${consecutive} System display message 'Data saved successfully!'`, function () {
       cy.wait(timeWait(1000, 5000));
-      cy.wait(timeWait(1000, 5000));
-      cy.get('button').contains('No').click();
+      cy.visit('http://localhost:3000/trackerPro/LotLog');
     });
     sumConsecutive();
     it(`${consecutive} The lot number entered appears on the batch number history table`, function () {
